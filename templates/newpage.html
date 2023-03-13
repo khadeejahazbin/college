@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New page</title>
+</head>
+<body>
+<div>
+<form action="/newpage" method="post">
+    {% csrf_token %}
+    <input type="text" name="first_name" placeholder="Enter your Name"><br>
+     <input type="date" name="DOB" placeholder="Enter your DOB"><br>
+     <input type="number" name="age" placeholder="Enter your age"><br>
+    <label>Gender</label><br>
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  <label class="form-check-label" for="inlineRadio1">Male</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  <label class="form-check-label" for="inlineRadio2">Female</label>
+</div><br>
+
+     <input type="number" name="phone number" placeholder="Enter your phone number"><br>
+     <input type="email" name="email" placeholder="Enter your email"><br>
+     <input type="text" name="address" placeholder="Enter your address"><br>
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Department</label>
+      <select id="inputState" class="form-control">
+        <option selected>science</option>
+        <option>computer science</option>
+          <option>maths</option>
+          <option>economics</option>
+          <option>history</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Course</label>
+      <select id="inputState" class="form-control">
+        <option selected>physics</option>
+        <option>python</option>
+          <option>metrix</option>
+          <option>financial system</option>
+          <option> world history</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Purpose</label>
+      <select id="inputState" class="form-control">
+        <option selected>Enquiry</option>
+        <option>check details</option>
+          <option>grade</option>
+
+      </select>
+    </div>
+
+<!--     <input type="text" name="material provide" placeholder="Enter material provide"><br>-->
+    <label>Material provide</label><br>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+      pen
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+  <label class="form-check-label" for="defaultCheck2">
+    book
+  </label>
+</div>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+  <label class="form-check-label" for="defaultCheck2">
+    papper
+  </label>
+</div>
+    <a class="btn btn-primary" href="{% url 'schools:linkpage' %}" role="button">Submit</a>
+    <a class="btn btn-primary" href="{% url 'schools:logout' %}" role="button">Logout</a>
+</form>
+<div>
+    {% for messages in messages %}
+    <h3>{{messages}}</h3>
+    {% endfor %}
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

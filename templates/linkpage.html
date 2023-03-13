@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <h1>student form is registered</h1>
+    <a href="{% url 'schools:allDepart' %}" class="btn btn-primary btn-lg active text-center"  aria-pressed="true">www.home.com</a>
+
+</form>
+
+{% endblock %}

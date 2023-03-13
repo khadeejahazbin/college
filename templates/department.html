@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+     {% if department %}
+        {{department.description | truncatewords:155 }}
+     {% else %}
+         Welcome to new world
+     {% endif %}
+{% endblock %}
+{% block title %}
+   {% if department %}
+        {{department.name }} - study well
+     {% else %}
+         go to school - study well
+     {% endif %}
+{% endblock %}
+
+{%  block content %}
+{% if department %}
+<div>
+    <div>
+        <p><a href="{% url 'schools:allDepart' %}">All Departments</a></p>
+    </div>
+</div>
+{% endif %}
+  <div class="card text-center">
+    {% if department %}
+    <img src="{{department.image.url}}" alt="{{department.name}}" style="width:1119px;height:400px">
+</div>
+ <br>
+<div class="container">
+<div class="card-body">
+    <h1 class="text-center">{{department.name}}</h1>
+    <p>{{department.description}}</p>
+</div>
+    </div>
+    {% else %}
+<div>
+ <img src="{% static 'img/banner1.png' %}" alt="departments" width="1119px;" height="400px">
+</div>
+<br>
+<div>
+    <h1 class="text-center"> Our Departments</h1>
+    <p>Academic departments aim at improving students understanding of the nature of scientific knowledge. It provides a careful constructed, comprehensive program of courses, scheduled in a timely manner. To ensure students have proper and correct knowledge in various subjects that they learn in school.</p>
+</div>
+{% endif %}
+
+{% endblock %}

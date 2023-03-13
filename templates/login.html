@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+<h2>Login</h2>
+<form action="login" method="post">
+    {% csrf_token %}
+     <input type="text" name="username" placeholder="Enter username"><br>
+     <input type="password" name="password" placeholder="Enter password"><br>
+     <button class="btn btn-primary" type="submit">Button</button>
+      <a class="btn btn-primary" href="{% url 'schools:register' %}" role="button"> Register Link</a>
+</form>
+<div>
+    {% for messages in messages %}
+    <h3>{{messages}}</h3>
+    {% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}
