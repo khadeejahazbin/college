@@ -1,70 +1,77 @@
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--  <div class="container-fluid">-->
-
-<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--      <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
-<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-<!--          <li class="nav-item">-->
-
-<!--          <a class="nav-link" href="#">Login</a>-->
-<!--            <a class="btn btn-primary" href="{% url 'schools:login' %}" role="button"></a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-
-<!--          <a class="nav-link" href="#">Register</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown {% if 'schools' in request.path %} active {% endif %}">-->
-<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--            Departments-->
-<!--          </a>-->
-<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-
-<!--            <li><a class="dropdown-item " href="{% url 'schools:allDepart' %}">All Department</a></li>-->
-<!--            {% for dep in links %}-->
-<!--             <li><a class="dropdown-item" href="{{dep.get_url}}">{{dep.name}}</a></li>-->
-<!--            {% endfor %}-->
-
-<!--          </ul>-->
-<!--        </li>-->
-
-<!--      </ul>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</nav>-->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/" role="button"
+            >Home</a
+          >
+        </li>
+        <li
+          class="nav-item dropdown {% if 'schools' in request.path %} active {% endif %}"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Department
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'schools:allDepart' %}"
+              >All Department</a
+            >
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-          <a class="btn btn-primary" href="{% url 'schools:login' %}" role="button"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
-      </li>
-      <li class="nav-item dropdown {% if 'schools' in request.path %} active {% endif %}">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Department
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'schools:allDepart' %}">All Department</a>
-              {% for dep in links %}
-          <a class="dropdown-item" href="{{dep.get_url}}">{{dep.name}}</a>
-              {% endfor %}
+         <p><a href="{{'https://en.wikipedia.org/wiki/Science'}}">science</a></p>
 
-        </div>
-      </li>
-    </ul>
-  </div>
+         <p><a href="{{'https://en.wikipedia.org/wiki/Computer_science'}}">computer science</a></p>
+
+         <p><a href="{{'https://en.wikipedia.org/wiki/Mathematics'}}">maths</a></p>
+
+         <p><a href="{{'https://en.wikipedia.org/wiki/Commerce'}}">commerce</a></p>
+
+         <p><a href="{{'https://en.wikipedia.org/wiki/History'}}">history</a></p>
+
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white" href="{% url 'schools:logout' %}" role="button"
+            >Logout</a
+          >
+        </li>
+<!--        {% else %}-->
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white" href="{% url 'schools:login' %}" role="button"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'schools:register' %}" role="button"
+            >Register</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+    </div>
   </div>
 </nav>
-

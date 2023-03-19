@@ -3,6 +3,8 @@
 {% load static %}
 {% block content %}
 
+<div class="container">
+<div class="card-body">
 <form method="POST">
     {% csrf_token %}
 
@@ -10,5 +12,6 @@
     <a href="{% url 'schools:allDepart' %}" class="btn btn-primary btn-lg active text-center"  aria-pressed="true">www.home.com</a>
 
 </form>
-
+</div>
+</div>
 {% endblock %}
